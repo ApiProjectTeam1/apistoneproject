@@ -1,7 +1,6 @@
 name: Github to Jira integration
 
-on:
-  pull_request:
+on: pull_request
 
 jobs:
   test-transition-issue:
