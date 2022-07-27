@@ -1,6 +1,8 @@
 name: Github to Jira integration
 on:
-  push
+  push:
+    branches:    
+      - 'PSTNTM/**'
 #   pull_request:
 #     types: [opened, reopened]
 
