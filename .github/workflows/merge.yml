@@ -23,4 +23,4 @@ jobs:
       if: github.event.pull_request.merged == true
       with:
         issue: ${{ github.head_ref }}
-        transition: "InCodeReview"
+        transition: "In Code Review"
