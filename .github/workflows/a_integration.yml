@@ -25,4 +25,4 @@ jobs:
       uses: atlassian/gajira-comment@master
       with:
         issue: ${{ github.head_ref }}
-        comment: "${{ github.event.pusher.name }} pushed to repository: ${{ github.event.repository.full_name }}  commit message is: ${{ github.event.head_commit.message }}"
+        comment: "${{ github.event.pusher.name }} pushed to repository: ${{ github.event.repository.full_name }}  commit message is: ${{ github.event.commits[0].message }}"
