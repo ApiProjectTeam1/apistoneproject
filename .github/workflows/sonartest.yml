@@ -2,9 +2,9 @@ name: SonarQube Scan
 
 on:
   workflow_run:
-      workflows: ["pr merge"]
-      types:
-        -completed
+    workflows: [pr merge]
+    types:
+      - completed
 
 jobs:
   sonarqube:
