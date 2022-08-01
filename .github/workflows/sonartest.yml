@@ -21,6 +21,7 @@ jobs:
       with:
         host: ${{ secrets.SONARQUBE_HOST }}
         login: ${{ secrets.SONARQUBE_TOKEN }}
+        projectBaseDir: "Hello World/src/"
   test-transition-issue:
     name: Transition merge
     runs-on: ubuntu-latest
