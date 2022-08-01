@@ -1,35 +1,35 @@
-name: SonarQube Scan
+# name: SonarQube Scan
 
-on:
-  workflow_run:
-    workflows: [pr merge]
-    types:
-      - completed
+# on:
+#   workflow_run:
+#     workflows: [pr merge]
+#     types:
+#       - completed
 
-jobs:
-  sonarqube:
-    name: SonarQube Trigger
-    runs-on: ubuntu-latest
-    steps:
-    - name: SonarQube Scan
-      uses: kitabisa/sonarqube-action@v1.2.0
-      with:
-        host: ${{ secrets.SONARQUBE_HOST }}
-        login: ${{ secrets.SONARQUBE_TOKEN }}
+# jobs:
+#   sonarqube:
+#     name: SonarQube Trigger
+#     runs-on: ubuntu-latest
+#     steps:
+#     - name: SonarQube Scan
+#       uses: kitabisa/sonarqube-action@v1.2.0
+#       with:
+#         host: ${{ secrets.SONARQUBE_HOST }}
+#         login: ${{ secrets.SONARQUBE_TOKEN }}
         
-  test-transition-issue:
-    name: Transition cred
-    runs-on: ubuntu-latest
-    steps:
-    - name: Login
-      uses: atlassian/gajira-login@master
-      env:
-        JIRA_BASE_URL: ${{ secrets.JIRA_BASEURL }}
-        JIRA_USER_EMAIL: ${{ secrets.JIRA_USER }}
-        JIRA_API_TOKEN: ${{ secrets.JIRA_TOKEN }}
+#   test-transition-issue:
+#     name: Transition cred
+#     runs-on: ubuntu-latest
+#     steps:
+#     - name: Login
+#       uses: atlassian/gajira-login@master
+#       env:
+#         JIRA_BASE_URL: ${{ secrets.JIRA_BASEURL }}
+#         JIRA_USER_EMAIL: ${{ secrets.JIRA_USER }}
+#         JIRA_API_TOKEN: ${{ secrets.JIRA_TOKEN }}
 
-    - name: Transition to qa
-      uses: atlassian/gajira-transition@master
-      with:
-        issue: ${{ github.head_ref }}
-        transition: "Ready For QA Deployment"
+#     - name: Transition to qa
+#       uses: atlassian/gajira-transition@master
+#       with:
+#         issue: ${{ github.head_ref }}
+#         transition: "Ready For QA Deployment"
